@@ -1,0 +1,177 @@
+
+body {
+    background-color: #e4e3dc;
+    color: #2F4858;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+nav {
+    background-color: #8A3528;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+    margin-right: 50px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: transparent;
+    color: grey;
+}
+
+.active-page {
+    font-weight: bolder;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+.skip-main {
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    background-color: #51514D;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.skip-main:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+.item {
+    display: grid;
+    border: 5px solid #8A3528;
+    padding: 15px;
+
+}
+
+
+.item img, video {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+main .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+    grid-template-rows: auto; /* Adjust row size as needed */
+    gap: 20px; /* Adjust the gap between items */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Styles to apply when motion is reduced */
+    /* For example, you might want to disable or minimize animations */
+    * {
+        transition-duration: 0.001ms !important;
+        animation-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Styles for mobile devices */
+    #skip {
+        display: none;
+    }
+}
+
+
+
+/* Tablet */
+@media only screen and (max-width: 1024px) {
+
+    h1,
+    .item h2,
+    .item h3 {
+        font-size: 1.25em;
+    }
+
+    .item p,
+    .item ul li {
+        font-size: 1em;
+    }
+
+    .skip-link {
+        left: 10px;
+        top: 10px;
+        z-index: 10000;
+    }
+
+    .skip-link:focus,
+    .skip-link:active {
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        z-index: 10000;
+        padding: 15px;
+        background-color: #FFF;
+        border: 2px solid #000;
+        text-align: center;
+        font-size: 1.2em;
+
+        min-width: 130px;
+        min-height: 50px;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+
+
+    .item img,
+    .item video {
+        height: auto;
+        /* Adjust the height to maintain aspect ratio */
+    }
+    
+    /* Create a horizontally scrollable container within each .item */
+    .gallery-container {
+        outline: none;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        height: 50vh;
+        width: 100%;
+        object-fit: contain;
+    }
+    .gallery-container:focus {
+        outline: 2px solid #8A3528;
+    }
+
+    .gallery-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 100%;
+        height: auto;
+        margin-right: 1em;
+    }
+
+}
